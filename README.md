@@ -58,16 +58,6 @@ nearest-neighbor estimator based on `survivalROC`.
 
 ## Single-method wrappers
 
-There are two types of validation wrappers.
-
-The `*_cv()` functions reproduce the original CV-only analyses. They use all
-samples in cross-validation for tuning/evaluation and do not create an
-independent test split.
-
-The `*_cv_test()` functions first split the data into training and test sets,
-select hyperparameters by CV within the training set, then report performance
-on the independent test set.
-
 ```r
 fit <- conticox_fit(X, time, status, n_components = 3, alpha = 0.6)
 
@@ -95,8 +85,6 @@ cv_test <- conticox_cv_test(
 cv_test$test_iAUC
 ```
 
-Available CV-only wrappers:
-
 - `conticox_cv()`
 - `plsdr_cv()`
 - `partialcox_cv()`
@@ -111,14 +99,6 @@ Available train/test wrappers:
 - `ridgecox_cv_test()`
 - `enetcox_cv_test()`
 
-## AUC utilities
-
-```r
-grid <- as.numeric(quantile(time, probs = seq(0.2, 0.8, length.out = 10)))
-auc <- auc_curve(time, status, marker = risk_score, auc_time_grid = grid,
-                 auc_method = "IPCW")
-integrated_auc(auc)
-```
 
 ## Paper scripts
 
