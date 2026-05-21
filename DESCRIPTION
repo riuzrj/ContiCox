@@ -1,0 +1,40 @@
+Package: conticox
+Type: Package
+Title: Continuum PCA-PLS Cox Models and Survival Baselines
+Version: 0.1.0
+Authors@R: person(given = "Ruijuan", family = "Zhong",
+    email = "ruijuanzhong@example.com", role = c("aut", "cre"))
+Author: Ruijuan Zhong
+Maintainer: Ruijuan Zhong <ruijuanzhong@example.com>
+Description: Implements the ContiCox continuum PCA-PLS Cox method and
+    companion survival prediction baselines used in the paper, including
+    DRPLS, partial Cox, ridge Cox, and elastic-net Cox. The package provides
+    training/test validation wrappers and time-dependent AUC utilities with
+    IPCW, NNE, and KM estimators.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 4.0.0)
+Imports:
+    survival,
+    pls,
+    RSpectra,
+    glmnet,
+    stats,
+    utils
+Suggests:
+    survivalROC,
+    timeROC,
+    survcomp,
+    survAUC,
+    prodlim,
+    MASS
+Collate:
+    '01-auc_utils.R'
+    '02-pcapls_CR.R'
+    '03-DRPLS.R'
+    '04-DRPCAPLS.R'
+    '05-partial_cox.R'
+    '06-penalized_cox_baselines.R'
+    '07-train_test_validation.R'
+    '99-api.R'
